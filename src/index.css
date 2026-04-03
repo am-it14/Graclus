@@ -201,3 +201,125 @@ code, .mono {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.upload-section {
+  width: 100%;
+  margin-bottom: var(--space-lg, 24px);
+}
+
+.upload-section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.upload-section-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  background: var(--accent-indigo, #6366f1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.upload-section-badge.parent {
+  background: var(--accent-emerald, #10b981);
+}
+
+.upload-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 2px 0;
+}
+
+.upload-section-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.upload-section-status {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  align-self: center;
+}
+.upload-section-status.done {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-emerald, #10b981);
+}
+
+/* Parent dropzone — slightly different tint so the two zones are visually distinct */
+.upload-dropzone.parent-dropzone {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.03);
+}
+.upload-dropzone.parent-dropzone:hover,
+.upload-dropzone.parent-dropzone.dragging {
+  border-color: var(--accent-emerald, #10b981);
+  background: rgba(16, 185, 129, 0.07);
+}
+.upload-dropzone.parent-dropzone.has-file {
+  border-color: var(--accent-emerald, #10b981);
+}
+
+/* Divider between sections */
+.upload-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 24px;
+}
+.upload-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-color, rgba(255,255,255,0.08));
+}
+.upload-divider-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Checklist below CTA */
+.upload-checklist {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.upload-check {
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+.upload-check.done {
+  color: var(--accent-emerald, #10b981);
+}
+
+/* Hint banner (soft nudge, not an error) */
+.upload-hint-banner {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-align: center;
+}
