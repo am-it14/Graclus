@@ -1,0 +1,29 @@
+{
+  "batch_processed_at": "2026-04-03T18:58:33.229628",
+  "total_files": 3,
+  "successful": 3,
+  "errors": 0,
+  "results": [
+    {
+      "file": "3.pdf",
+      "output": "3_result.json",
+      "num_questions": 5,
+      "status": "success",
+      "error": null
+    },
+    {
+      "file": "4.pdf",
+      "output": "4_result.json",
+      "num_questions": 4,
+      "status": "success",
+      "error": null
+    },
+    {
+      "file": "sheet1.pdf",
+      "output": "sheet1_result.json",
+      "num_questions": 6,
+      "status": "success",
+      "error": null
+    }
+  ]
+}

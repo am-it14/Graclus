@@ -1,0 +1,128 @@
+{
+  "file": "3.pdf",
+  "processed_at": "2026-04-03T18:56:22.891608",
+  "pages_processed": 36,
+  "num_questions": 5,
+  "answers": {
+    "Q2": {
+      "full_text": "Q2 answer with 2 sub-parts",
+      "sub_parts": {
+        "a": "comparison of static and dynamic data structure:\n\nstatic | Dynamic\n---|---\n• A type of data structure having fixed size. | • A type of data structure which doesnot have fixed size.\n• A fixed memory is allocated at the time of initiation. | • Memory is allocated dynamically, or real time.\n• Eg: Array | • Eg: linked list.\n• Easy to implement | • It is not easy to implement.\n\nSignificance of persistent and Ephemeral data structure:\nPersistent:\n• A type of data structure which can withstand their original state.\n• For eg: Stack.\n\n[Diagram of Stack: Top(9), Middle(8), Bottom(10)]\nIt is a stack having element 9 & 8.\nNow if we want to pop one element lets say, 8\n[Diagram showing 8 popped, remaining: Top(9), Bottom(10)]\nNow also the remaining sequence is same.\n\nEphemeral data structure\n• A type of data structure which cannot withstand their original state after doing some operations.\n• For eg: Queue.\n[Diagram of Queue: Front(10), Middle(9), Rear(8)]\nIt is a queue having Elements 10, 9 & 8.\nNow if we dequeue one Element then,\n[Diagram showing 10 dequeued, remaining: Front(9), Rear(8)]\nIt looses its original state.\n• This is the significance of ephemeral data structure.",
+        "b": "Step count method:\nCode | Frequency\n---|---\nn = 100 | 1\nfor num in range (1,n): | n\nif num% 2 == 0: | n·n\nprint (num) | 1\nelse: | 1\nprint (num) | 1\n\nTotal complexity = Total no. of steps\n= 1+n+n·n+1+1+1\n= n² + n + 4\n\n• The above algorithm possess quadratic time complexity because the highest power of complexity obtained of from step count method is (2).\n• Above algorithm is a linear algorithm because It uses linear data structure. There is no non linear type of data structure used above.\n• Various algorithmic strategies used in data structure are as follows:\n(i) Greedy algorithm\n(ii) Backtracking\n(iii) Divide and conquer.\n\nDivide and conquer:\n• It is a algorithmic strategy which usually divide the problem into smaller subproblems and then solve them.\n• After solving each block of divided problem we rewbine them.\n• Steps involved in divide and conquer technique are:\n(i) Divide: Divide the problem.\n(ii) Conquer: Solve the subproblems\n(iii) Rewmbine: Combine all solved pieces of problem.\n• Eg: merge sort\n[Diagram for merge sort example with initial array 5, 0, 3, 7, 2, showing recursive splitting and merging steps, resulting in sorted array 0, 2, 3, 5, 7]"
+      }
+    },
+    "Q3": {
+      "full_text": "Q3 answer with 2 sub-parts",
+      "sub_parts": {
+        "a": {
+          "full_text": "Q3(a) answer with 3 sub-parts",
+          "sub_parts": {
+            "i": "Define terms:\nSpace matrix:\n• A Sparse matrix is a matrix data structure which uses array for initialisation and creation.\n• In python matrix is 2-D array.\n• It is used to store data which is in form of rows and columns.\n• a[i][j] = arr[4][5]",
+            "ii": "Sorting stability\n• Sorting stability is a property which retain the sequence of two similar elements even after operations like sorting.\n• For eg:\nUnsorted array:\n[ 5 | (3) | 3 | 0 | 9 ]\nAfter sorting:\n[ 0 | (3) | 3 | 5 | 9 ]\n• Here before sorting and after sorting the position of 3 sequence in it remains same.\n• This is stability.",
+            "iii": "Internal and External sort.\nInternal sorting | \n---|---\n• A type of sorting which uses main memory for its sorting purpose. | \nInternal sorting uses RAM for storage.\n• For eg: Bubble sort, Insertion sort, etc.\nExternal sorting\n• A type of sorting which due to lack of main memory uses secondary memory for sorting is called external sorting.\n• Very large data can be sorted by external sorting.\n• For eg: Merge sort."
+          }
+        },
+        "b": "Binary search algorithm:\n9, 17, 23, 38, 45, 50, 57, 76, 90, 100\n• Binary search algorithm is only applicable for sorted array.\nAlgorithm:\n• divide the array in half.\n• check if mid element is key.\n• If not, then check :\n  If key < mid:\n  high = mid-1\n  else:\n  low = mid+1\n• where,\n  low = 0\n  high = (last element)\n  mid = (high + low) / 2.\n• As given question, keys are 23 and 90.\n(i) key = 23.\n[Array: 9, 17, 23, 38, 45, 50(mid), 57, 76, 90, 100(high)]\nPass 1: mid = 50\n23 < 50\nThen we will consider first half,\nhigh = 45\n[Array: 9, 17, 23, 38, 45]\nPass 2: Mid element = 23\n23 = 23\nmatch found in 2nd pass.\n(ii) key = 90\nPass 1: mid = 50\n50 < 90\nConsidering second half of array,\nlow = 57\n[Array: 57, 76, 90, 100]\nPass 2: mid element = 90\n90 = 90\nmatch found in 2nd pass.\nTime complexity = O(logn)"
+      }
+    },
+    "Q6": {
+      "full_text": "Q6 answer with 2 sub-parts",
+      "sub_parts": {
+        "a": {
+          "full_text": "Q6(a) answer with 3 sub-parts",
+          "sub_parts": {
+            "i": "Define and draw:\nQueue\n• Queue is a type of data structure which uses principle of FIFO (First In First out).\n• It have two ends that is,\n  enqueue from rear\n  dequeue from front.\n[Diagram: Queue with elements A, B, C. Front (deletion) arrow from left, Rear (insertion operation) arrow from right.]",
+            "ii": "Circular Queue:\n• Circular queue is a type of queue in which last element is connected to first element.\n• It helps to reduce memory wastage.\n[Diagram of a circular queue with A, B, C, D, E, S and numbers 1, 2, 3, 4, 5. Front and Rear indicated.]\nCircular queue.",
+            "iii": "Dequeue\n• Dequeue is a major operation of queue used to delete elements.\n• Dequeue is done from front end of queue.\n[Diagram: Queue with elements 10 | 0 | 3]\noperation : dequeue executed\n[Diagram: Queue with elements | 0 | 3]\n10 is deleted because it was front element."
+          }
+        },
+        "b": {
+          "full_text": "Q6(b) answer with 4 sub-parts and an example, presented in two sections.",
+          "sub_parts": {
+            "i": "Stack implementation pseudocode using linked list:\nCreate : creating linked list to perform operations\nPseudocode:\nclass Node:\ndef __init__(self, data):\nself.data = data\nself.next = None\ndef __init__(self, head):\nself.head = None\n\nStack implementation pseudocode:\nCreate : initialising linked list\ndef __init__ ( self ):\nself.data -> data\nself.next -> None\ndef __init__ (self, head):\nself.head -> None",
+            "ii": "Push : insert data element in linked list\ndef insert (head, n):\nnew = Node (n)\nnew->next = head\nreturn head\nvalue stored as new.\n\nPush : In stack we push data from ffirst front.\ndef insert (head, n):\nif head is none:\nreturn head\nelse:\nhead.next -> new\nnew -> Node(n)",
+            "iii": "Pop : delete last element.\ndef delete (self, head):\nif head is none\nreturn none\ntemp -> head\nwhile temp.next and temp.next.data != key:\ntemp = temp->next\nNull temp.\n\nPop : In stack, element last added was deleted first.\ndef delete (self, head):\nif head is none:\nreturn head\ntemp -> head\nwhile temp.next and temp.next.\ndata != key:\ntemp -> temp.next\nNull temp.",
+            "iv": "Display: Traverse all elements.\ndef display (node):\ntemp -> head\nwhile temp:\ntemp -> temp.next\nprint (temp.data)\n\nDisplay: In this we traverse through all elements and print them.\ndef display (node):\ntemp -> head\nwhile temp:\ntemp -> temp.next\nprint (temp.data)",
+            "Eg": "Eg:\n[Diagram: head -> [data | next]]\n(i) push 10\n[Diagram: [10 | ->]]\n(ii) push 20\n[Diagram: [10 | ->] -> [20 | ->]] (with 'head' pointing to 10)\n(iii) delete pop\n[Diagram: [10 | new]]"
+          }
+        }
+      }
+    },
+    "Q8": {
+      "full_text": "Q8 answer with 2 sub-parts",
+      "sub_parts": {
+        "a": {
+          "full_text": "Q8(a) answer with 4 sub-parts",
+          "sub_parts": {
+            "i": "short note on three hashing techniques:\nDivision method:\n• It is a hashing technique used to put element in hash table by using modulus division",
+            "ii": "Chaining\n• In this type of hashing, element are placed at bucket having remainder of division method.\n• Chaining can be with clone with replacement or without replacement.\n• Eg:\n21, 2, 33, 61, 4\nkey mod 5\n\n| with | without | key mod 5\n---|---|---|---\n0 | 4 | 4 | -1\n1 | 21 | 21 | -1\n2 | 2 | 2 | -1\n3 | 33 | 33 | -1\n4 | 61 | 61 | 0",
+            "iii": "Linear probing:\n• Elements are directly placed according to hash function.\n• Eg: 21, 2, 33, 61\n\nkey | mod 4 | (collision)\n---|---|---\n0 | 61 | 61 % 4 = 1\n1 | 21 | 21 % 4 = 1\n2 | 2 | 2 % 4 = 2\n3 | 33 | 33 % 4 = 3",
+            "iv": "Quadratic probing:\n• In this type of hashing we first find index by normal hash function and then use formula:\n  (Hash (key) + i²) % size.\n• It is way of reducing collisions.\n• Eg: 21, 2, 33, 61, 50\nkey mod 5\n\n| \n---|---\n0 | 61\n1 | 21\n2 | 2\n3 | 33\n4 | 50\n\n(i) 21 % 5 = 1\n(ii) 2 % 5 = 2\n(iii) 33 % 5 = 3\n(iv) 61 % 5 = 1 -> collision\n(61 + 0²) % 5 = 1 (i=0)\n(61 + 1²) % 5 = 2 (i=1) collision\n(61 + 2²) % 5 = 0 (i=2)\n(v) 50 % 5 = 0 -> collision\n(50 + 0²) % 5 = 0 (i=0) collision\n(50 + 1²) % 5 = 1 (i=1) collision\n(50 + 2²) % 5 = 4 (i=2)"
+          }
+        },
+        "b": {
+          "full_text": "Q8(b) answer with 2 sub-parts (Linear Probing and Quadratic Probing) each containing multiple steps.",
+          "sub_parts": {
+            "i": {
+              "full_text": "Linear probing example with 7 steps.",
+              "sub_parts": {
+                "general_info": "Linear probing:\n4371, 1303, 6173, 4199, 4344, 9679, 1989\nsize = 10\nHash function: key % 10",
+                "i": "4371 % 10 = 1\n[Hash table diagram: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\n                   | 4371 |   |   |   |   |   |   |   |   | ]",
+                "ii": "1303 % 10 = 3\n[Hash table diagram: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\n                   | 4371 |   | 1303 |   |   |   |   |   | ]",
+                "iii": "6173 % 10 = 3 -> collision, next pos empty slot\n[Hash table diagram: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\n                   | 4371 |   | 1303 | 6173 |   |   |   |   | ]",
+                "iv": "4199 % 10 = 9\n[Hash table diagram: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\n                   | 4371 |   | 1303 | 6173 |   |   |   | 4199 ]",
+                "v": "4344 % 10 = 4 -> collision\n[Hash table diagram: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\n                   | 4371 |   | 1303 | 6173 | 4344 |   |   | 4199 ]",
+                "vi": "9679 % 10 = 9 -> collision\n[Hash table diagram: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\n                 9679 | 4371 |   | 1303 | 6173 | 4344 |   |   | 4199 ]",
+                "vii": "1989 % 10 = 9 -> collision\n[Hash table diagram: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\n                 9679 | 4371 | 1989 | 1303 | 6173 | 4344 |   |   | 4199 ]"
+              }
+            },
+            "ii": {
+              "full_text": "Quadratic probing example with 7 steps.",
+              "sub_parts": {
+                "i": "4371 % 10 = 1",
+                "ii": "1303 % 10 = 3",
+                "iii": "6173 % 10 = 3 -> collision\nQuadratic probing = (Hash(key) + i²) % size\n(i = 0, 1, 2, 3, ...)\nSo,\n(6173 + 0²) % 10 = 3 (i=0)\n(6173 + 1²) % 10 = 4 (i=1)",
+                "iv": "4199 % 10 = 9",
+                "v": "4344 % 10 = 4 -> collision\nSo,\n(4344 + 0²) % 10 = 4 (i=0)\n(4344 + 1²) % 10 = 5 (i=1)",
+                "vi": "9679 % 10 = 9 -> collision\nSo,\n(9679 + 0²) % 10 = 9 (i=0)\n(9679 + 1²) % 10 = 0 (i=1)",
+                "vii": "1989 % 10 = 9 -> collision\nSo,\n(1989 + 0²) % 10 = 9 (i=0)\n(1989 + 1²) % 10 = 0 (i=1)\n(1989 + 2²) % 10 = 3 (i=2)\n(1989 + 3²) % 10 = 8 (i=3)"
+              }
+            },
+            "summary_table": {
+              "Linear probing": {
+                "Index": "0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9",
+                "data": "9679 | 4371 | 1989 | 1303 | 6173 | 4344 | - | - | - | 4199"
+              },
+              "Quadratic probing": {
+                "Index": "0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9",
+                "data": "9679 | 4371 | - | 1303 | 6173 | 4344 | - | - | 1989 | 4199"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Q4": {
+      "full_text": "Q4 answer with 2 sub-parts",
+      "sub_parts": {
+        "a": {
+          "full_text": "Q4(a) answer with 3 sub-parts",
+          "sub_parts": {
+            "general_info": "Inorder, Preorder and postorder sequence:\n[Diagram of a binary tree: A is root, B & H children of A; C & F children of B; I & J children of H; D & E children of C; G child of F]",
+            "i": "Inorder:\nLeft child -> Root -> Right child\n[Diagram of tree with inorder traversal arrows]\nsequence: D B E C F G A H I J\nD E C B F G A\nH I J",
+            "ii": "Preorder:\nRoot -> Left child -> Right child\n[Diagram of tree with preorder traversal arrows]\nSequence : A B C D E F G H I J",
+            "iii": "Post order:\nLeft child -> Right child -> Root\n[Diagram of tree with postorder traversal arrows]\nSequence: D C F E G B H I J A"
+          }
+        },
+        "b": {
+          "full_text": "Kruskal algorithm explanation with examples.",
+          "sub_parts": {
+            "general_description": "Kruskal algorithm:\n• Start with a vertex pair having minimum weight\n• Now search for adjacent pair of vertices having lowest weight around in its neighbours.\n• Add weights of all joining we edges till (V-1) edges.\n• Cycle should not be formed in between.\n• we are putting weights in ascending order and adding without forming a cycle.\n• For eg:\n[Diagram of a graph with 5 vertices (1, 2, 3, 4, 5) and weighted edges: (1,4) 10, (1,2) 28, (2,4) 14, (2,3) 16, (4,3) 12, (4,5) 25, (5,3) 22. Also an ambiguous edge from 2 to an unlabeled node then to 3 with weight 18.]\nfor cost of MST given:\nweights in ascending order:\n10 12 14 16 (18) (19) 22 (24) 25 (28)\nNow we will connect the vertices:\n[Diagram showing a subgraph of 5 vertices with edges (1,4) 10, (4,3) 12, (2,4) 14, (2,3) 16, (4,5) 25]\nTotal cost = 10+12+16+22+25+14\n= 99",
+            "stepwise_explanation": "Stepwise explanation of kruskal by example:\n[Diagram of a graph with 4 vertices (1, 2, 3, 4) and weighted edges: (1,2) 8, (1,4) 1, (2,3) 11, (4,3) 5, (2,4) 9]\n• In this graph first arrange the weight in ascending order of weights:\nweights : 1 2 5 8 9 11\n• Now will start connecting vertices from that weight.\n• we have to take no cycle is formed in between.\n• If cycle forming, leave the weight.\n(i) 1:\n[Diagram showing nodes 1, 2, 3, 4 with edge (1,4) connected]\n(ii) 2:\n[Diagram showing nodes 1, 2, 3, 4 with edges (1,4) and (4,3) connected]\n(iii) 5:\n[Diagram showing nodes 1, 2, 3, 4 with edges (1,4) and (4,3) connected (same as ii)]\n(iv) 8:\n[Diagram showing nodes 1, 2, 3, 4 with edges (1,4), (4,3), and (1,2) connected]\n(v) 9: skip\n(vi) 11: skip\n(vii) Total cost of MST spanning tree :\n= 1+2+5+8\n= 16"
+          }
+        }
+      }
+    }
+  },
+  "unassigned": "[A large curved line is present on page 32.]"
+}
