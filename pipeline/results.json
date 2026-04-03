@@ -1,0 +1,110 @@
+{
+  "layer1": {
+    "keys_present": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "expected_keys": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "keys_ok": true,
+    "response_counts": {
+      "Q1": 10,
+      "Q2": 10,
+      "Q3": 10,
+      "Q4": 10,
+      "Q5": 10,
+      "Q6": 10,
+      "Q7": 10,
+      "Q8": 10,
+      "Q9": 10,
+      "Q10": 10
+    },
+    "all_have_10": true,
+    "sample_doc_keys": [
+      "Doc10_Advanced.md",
+      "Doc1_Standard.md",
+      "Doc2_Analytical.md",
+      "Doc3_Application.md",
+      "Doc4_Concise.md"
+    ],
+    "keys_are_filenames": true,
+    "q1_doc1_preview": "Newton\u2019s Second Law of Motion states that the acceleration of an object is directly proportional to the net force acting",
+    "q1_doc1_empty": false,
+    "q1_starts_with_digit": false
+  },
+  "layer2": {
+    "ids_match": true,
+    "missing_ids": [],
+    "extra_ids": [],
+    "total_students": 10,
+    "total_clusters": 1,
+    "unclustered": [
+      "Doc10_Advanced.md",
+      "Doc2_Analytical.md",
+      "Doc3_Application.md",
+      "Doc5_Verbose.md",
+      "Doc6_Historical.md",
+      "Doc8_Systems.md"
+    ],
+    "edge_case_count": 0,
+    "cluster_schema_ok": true,
+    "clusters": [
+      {
+        "id": 0,
+        "label": [
+          "mass",
+          "force",
+          "push"
+        ],
+        "sids": [
+          "Doc1_Standard.md",
+          "Doc4_Concise.md",
+          "Doc7_FirstPerson.md",
+          "Doc9_Practical.md"
+        ],
+        "edge_cases": []
+      }
+    ],
+    "metadata_ok": true,
+    "metadata": {
+      "model_used": "all-MiniLM-L6-v2",
+      "algorithm": "DBSCAN",
+      "total_students": 10,
+      "total_clusters": 1,
+      "processing_time_seconds": 4.69,
+      "embedding_time_seconds": 4.68,
+      "clustering_time_seconds": 0.0,
+      "edge_case_count": 0
+    },
+    "edge_detector_tests": {
+      "edge_text_flagged": true,
+      "clean_not_flagged": true,
+      "noise_not_flagged": true
+    },
+    "edge_detector_all_pass": true
+  },
+  "layer3": {
+    "all_10_questions_printed": true,
+    "cluster_output_present": true,
+    "output_line_count": 159
+  },
+  "issues": []
+}
