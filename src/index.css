@@ -1,4 +1,3 @@
-/* ===== DESIGN SYSTEM ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
@@ -36,7 +35,6 @@
   --gradient-mesh: radial-gradient(at 20% 80%, rgba(129, 140, 248, 0.12) 0%, transparent 50%),
                    radial-gradient(at 80% 20%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
                    radial-gradient(at 50% 50%, rgba(167, 139, 250, 0.05) 0%, transparent 50%);
-
   /* Spacing */
   --space-xs: 4px;
   --space-sm: 8px;

@@ -6,7 +6,7 @@ import GradingPage from './pages/GradingPage';
 import './App.css';
 
 function App() {
-  const [clusters, setClusters] = useState(null);
+  const [questions, setQuestions] = useState(null);
   const [stats, setStats] = useState(null);
 
   return (
@@ -14,15 +14,15 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<UploadPage setClusters={setClusters} setStats={setStats} />}
+          element={<UploadPage setQuestions={setQuestions} setStats={setStats} />}
         />
         <Route
           path="/clusters"
-          element={<ClustersPage clusters={clusters} setClusters={setClusters} stats={stats} />}
+          element={<ClustersPage questions={questions} setQuestions={setQuestions} stats={stats} />}
         />
         <Route
-          path="/grade/:clusterId"
-          element={<GradingPage clusters={clusters} setClusters={setClusters} />}
+          path="/grade/:questionId/:clusterId"
+          element={<GradingPage questions={questions} setQuestions={setQuestions} />}
         />
       </Routes>
     </BrowserRouter>

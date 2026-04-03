@@ -1,20 +1,23 @@
 import { useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { mockClusters, processingStats } from '../data/mockData';
+import { mockQuestions, processingStats } from '../data/mockData';
 
 const PROCESSING_STEPS = [
   'Extracting pages from PDF...',
   'Running OCR on handwritten text...',
   'Generating sentence embeddings...',
   'Detecting languages (EN / HI)...',
-  'Clustering answers with DBSCAN...',
+  'Grouping answers by question number...',
+  'Clustering Q1 answers with DBSCAN...',
+  'Clustering Q2–Q5 answers...',
+  'Clustering Q6–Q10 answers...',
   'Identifying edge-case answers...',
   'Building rubric keyword index...',
-  'Finalizing clusters...',
+  'Finalizing all clusters...',
 ];
 
-export default function UploadPage({ setClusters, setStats }) {
+export default function UploadPage({ setQuestions, setStats }) {
   const [file, setFile] = useState(null);
   const [dragging, setDragging] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -41,7 +44,7 @@ export default function UploadPage({ setClusters, setStats }) {
     setProgress(0);
     setCurrentStep(0);
 
-    const totalDuration = 3500;
+    const totalDuration = 4000;
     const stepInterval = totalDuration / PROCESSING_STEPS.length;
     let step = 0;
 
@@ -54,13 +57,13 @@ export default function UploadPage({ setClusters, setStats }) {
         clearInterval(stepTimer);
         setProgress(100);
         setTimeout(() => {
-          setClusters(mockClusters);
+          setQuestions(mockQuestions);
           setStats(processingStats);
           navigate('/clusters');
         }, 400);
       }
     }, stepInterval);
-  }, [setClusters, setStats, navigate]);
+  }, [setQuestions, setStats, navigate]);
 
   const formatFileSize = (bytes) => {
     if (bytes < 1024) return bytes + ' B';
@@ -80,7 +83,7 @@ export default function UploadPage({ setClusters, setStats }) {
           </h1>
           <p className="upload-description">
             Upload a scanned PDF of handwritten answer sheets. Our AI pipeline will OCR the text,
-            generate semantic embeddings, and cluster similar answers automatically.
+            group answers by question number, and cluster similar answers for each question automatically.
           </p>
 
           <div
@@ -106,7 +109,7 @@ export default function UploadPage({ setClusters, setStats }) {
                 <p className="dropzone-text">
                   {dragging ? 'Drop your PDF here' : 'Drag & drop your PDF here, or click to browse'}
                 </p>
-                <p className="dropzone-hint">Supports scanned handwritten answer sheets • PDF only</p>
+                <p className="dropzone-hint">Supports scanned handwritten answer sheets • PDF only • 100 papers × 10 questions</p>
               </>
             ) : (
               <>
@@ -138,11 +141,11 @@ export default function UploadPage({ setClusters, setStats }) {
               disabled={!file}
               onClick={handleProcess}
             >
-              🚀 Process & Cluster Answers
+               Process & Cluster Answers
             </button>
-            <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>
-              Typically takes 2–4 minutes for 100 sheets
-            </p>
+            {/* <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>
+              Typically takes 5–8 minutes for 100 sheets × 10 questions
+            </p> */}
           </div>
         </div>
       </div>

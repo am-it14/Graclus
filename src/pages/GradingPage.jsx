@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { mockClusters } from '../data/mockData';
+import { mockQuestions } from '../data/mockData';
 
 const TYPE_BADGES = {
   correct: 'badge-correct',
@@ -22,7 +22,6 @@ const TYPE_LABELS = {
 function highlightKeywords(text, keywords) {
   if (!text || !keywords || keywords.length === 0) return text;
 
-  // Escape regex special chars in keywords
   const escaped = keywords.map(k =>
     k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   );
@@ -37,24 +36,30 @@ function highlightKeywords(text, keywords) {
   });
 }
 
-export default function GradingPage({ clusters, setClusters }) {
-  const { clusterId } = useParams();
+export default function GradingPage({ questions, setQuestions }) {
+  const { questionId, clusterId } = useParams();
   const navigate = useNavigate();
   const [gradeValue, setGradeValue] = useState('');
   const [feedback, setFeedback] = useState('');
   const [showToast, setShowToast] = useState(false);
 
-  const data = clusters || mockClusters;
-  const cluster = useMemo(
-    () => data.find(c => c.id === parseInt(clusterId)),
-    [data, clusterId]
-  );
+  const data = questions || mockQuestions;
 
   useEffect(() => {
-    if (!clusters) {
-      setClusters(mockClusters);
+    if (!questions) {
+      setQuestions(mockQuestions);
     }
-  }, [clusters, setClusters]);
+  }, [questions, setQuestions]);
+
+  const question = useMemo(
+    () => data.find(q => q.id === parseInt(questionId)),
+    [data, questionId]
+  );
+
+  const cluster = useMemo(
+    () => question?.clusters.find(c => c.id === clusterId),
+    [question, clusterId]
+  );
 
   useEffect(() => {
     if (cluster && cluster.grade !== null) {
@@ -62,13 +67,13 @@ export default function GradingPage({ clusters, setClusters }) {
     }
   }, [cluster]);
 
-  if (!cluster) {
+  if (!question || !cluster) {
     return (
       <div className="app-bg">
         <Navbar activeStep={3} />
         <div className="grading-page" style={{ textAlign: 'center', paddingTop: 80 }}>
           <h2>Cluster not found</h2>
-          <Link to="/clusters" className="btn-secondary" style={{ marginTop: 20 }}>
+          <Link to="/clusters" className="btn-secondary" style={{ marginTop: 20, display: 'inline-flex' }}>
             ← Back to Clusters
           </Link>
         </div>
@@ -80,10 +85,16 @@ export default function GradingPage({ clusters, setClusters }) {
     const numericGrade = parseFloat(gradeValue);
     if (isNaN(numericGrade) || numericGrade < 0 || numericGrade > cluster.maxMarks) return;
 
-    const updated = data.map(c =>
-      c.id === cluster.id ? { ...c, grade: numericGrade } : c
-    );
-    setClusters(updated);
+    const updated = data.map(q => {
+      if (q.id !== question.id) return q;
+      return {
+        ...q,
+        clusters: q.clusters.map(c =>
+          c.id === cluster.id ? { ...c, grade: numericGrade } : c
+        ),
+      };
+    });
+    setQuestions(updated);
 
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
@@ -108,6 +119,12 @@ export default function GradingPage({ clusters, setClusters }) {
         {/* Header */}
         <div className="grading-header">
           <Link to="/clusters" className="grading-back">← Back to Clusters</Link>
+
+          <div className="grading-question-badge">
+            <span className="question-number-inline">Q{question.id}</span>
+            <span className="question-title-inline">{question.title}</span>
+          </div>
+
           <div className="grading-cluster-info">
             <h1>{cluster.label}</h1>
             <span className={`cluster-type-badge ${TYPE_BADGES[cluster.type]}`}>
@@ -159,7 +176,7 @@ export default function GradingPage({ clusters, setClusters }) {
             </button>
           </div>
           <p className="grade-apply-info">
-            This grade will be applied to <strong>{cluster.studentCount} students</strong> simultaneously.
+            This grade will be applied to <strong>{cluster.studentCount} students</strong> simultaneously for Q{question.id}.
             {cluster.grade !== null && (
               <span> Currently graded: <strong>{cluster.grade}/{cluster.maxMarks}</strong></span>
             )}
@@ -233,7 +250,7 @@ export default function GradingPage({ clusters, setClusters }) {
 
       {showToast && (
         <div className="toast">
-          ✅ Grade {gradeValue}/{cluster.maxMarks} applied to {cluster.studentCount} students
+          ✅ Grade {gradeValue}/{cluster.maxMarks} applied to {cluster.studentCount} students (Q{question.id})
         </div>
       )}
     </div>
