@@ -1,0 +1,15 @@
+{
+  "batch_processed_at": "2026-04-03T14:00:38.662659",
+  "total_files": 1,
+  "successful": 1,
+  "errors": 0,
+  "results": [
+    {
+      "file": "Economics-1-10-2-3.pdf",
+      "output": "Economics-1-10-2-3_result.json",
+      "num_questions": 11,
+      "status": "success",
+      "error": null
+    }
+  ]
+}
