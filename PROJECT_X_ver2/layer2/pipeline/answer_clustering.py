@@ -8,11 +8,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 def extract_edge_cases(text: str) -> bool:
-    """
-    Edge Case Detector: Identifies answers containing the correct formula pattern
-    but carrying a potentially wrong computational result. 
-    Tags these with special 'edge_partial' logical overrides.
-    """
     text_lower = text.lower()
     
     # Check for Physics F=ma formula pattern with a mocked arithmetic error
@@ -34,10 +29,6 @@ def extract_edge_cases(text: str) -> bool:
 
 
 def get_cluster_label(texts: list, top_n: int = 3) -> list:
-    """
-    Utilizes TF-IDF vectorization to extract the most dominant 
-    top_n keywords from the combined text corpus of a single cluster.
-    """
     if not texts:
         return []
     try:
@@ -63,10 +54,6 @@ def cluster_answers(
     min_samples: int = 2,
     auto_tune: bool = True
 ) -> dict:
-    """
-    End-to-End Pipeline converting a dictionary of student answers into 
-    highly structured, semantically grouped clusters with TF-IDF labeling.
-    """
     t_start = time.time()
     
     if not answers:

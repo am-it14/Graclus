@@ -1,17 +1,3 @@
-"""
-server.py  —  ExamCluster FastAPI Backend
-------------------------------------------
-Integrates layer1 (Gemini OCR) + layer2 (DBSCAN clustering).
-
-Endpoints:
-  POST /api/upload   — Upload PDFs -> OCR -> Cluster -> store in memory
-  GET  /api/clusters — Return latest cluster results (frontend shape)
-  POST /api/grade    — Save a grade for one cluster (persists in memory)
-  GET  /api/health   — Health check
-
-Run from PROJECT_X/backend/:
-  uvicorn server:app --host 0.0.0.0 --port 8000 --reload
-"""
 
 import os
 import sys
@@ -231,9 +217,6 @@ def _shape_for_frontend(pipeline_output: dict) -> dict:
     }
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Routes
-# ─────────────────────────────────────────────────────────────────────────────
 
 @app.get("/api/health")
 def health():
@@ -369,11 +352,7 @@ def save_grade(
     grade:      float = Body(...),
     feedback:   str   = Body(default="")
 ):
-    """
-    Persists a grade into the in-memory store so it survives a page refresh.
-    GradingPage.jsx already updates its local React state — this keeps the
-    server in sync.
-    """
+    
     global _latest_result
 
     if not _latest_result:

@@ -1,4 +1,3 @@
-"""Mini reporter: reads the log and writes a clean summary."""
 import codecs, re
 
 lines = []

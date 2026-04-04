@@ -1,9 +1,3 @@
-"""
-SYSTEMATIC PIPELINE DIAGNOSTIC TEST
-=====================================
-Phase 1: Root Cause Investigation — Trace each component boundary independently.
-Logs exactly what enters and exits each layer BEFORE drawing conclusions.
-"""
 import os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 
@@ -12,9 +6,6 @@ PASS = "[PASS]"
 FAIL = "[FAIL]"
 WARN = "[WARN]"
 
-# =============================================================================
-# LAYER 1: dict_builder — Document parsing
-# =============================================================================
 print("\n" + "="*60)
 print("  LAYER 1: dict_builder.build_question_dictionaries()")
 print("="*60)
@@ -53,10 +44,6 @@ for k in sample_keys[:3]:
     else:
         print(f"  {PASS} Key is filename only: {k!r}")
 
-
-# =============================================================================
-# LAYER 2: answer_clustering — Embedding and DBSCAN
-# =============================================================================
 print("\n" + "="*60)
 print("  LAYER 2: answer_clustering.cluster_answers()")
 print("="*60)
@@ -131,9 +118,6 @@ for text, expected, label in [
     print(f"  {status} extract_edge_cases({label!r}): expected={expected}, got={got}")
 
 
-# =============================================================================
-# LAYER 3: main_pipeline — Integration smoke test
-# =============================================================================
 print("\n" + "="*60)
 print("  LAYER 3: main_pipeline.run_evaluation() — smoke test")
 print("="*60)
@@ -162,9 +146,6 @@ except Exception as e:
     print(f"  {FAIL} main_pipeline raised an exception: {e}")
 
 
-# =============================================================================
-# SUMMARY
-# =============================================================================
 print("\n" + "="*60)
 print("  DIAGNOSTIC COMPLETE")
 print("="*60 + "\n")

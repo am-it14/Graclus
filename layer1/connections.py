@@ -1,27 +1,3 @@
-"""
-pipeline.py
------------
-PURPOSE: Main orchestrator — ties everything together.
-
-NEW FLOW (EasyOCR removed):
-  PDF   →  [pdf_converter]  →  list of PIL Images
-  Image →  [load_image]     →  single PIL Image in a list
-  Images → [llm_structurer] →  Gemini Vision reads handwriting + returns JSON
-
-HOW TO RUN:
-  # Process a folder of exams:
-  python pipeline.py --input sample_input/ --output output/
-
-  # Process a single file:
-  python pipeline.py --file path/to/exam.pdf
-
-  # Use defaults (input = sample_input/, output = output/):
-  python pipeline.py
-
-HOW TO USE AS A MODULE (for Streamlit integration):
-  from pipeline import process_file, process_folder
-"""
-
 import os
 import json
 import argparse
@@ -52,10 +28,6 @@ def process_file(file_path: str) -> dict:
     print(f"  File: {file_path.name}")
     print(f"{'─' * 55}")
 
-    # ---- Step 1: Get images ----
-    # Turn whatever the input is into a list of PIL Images.
-    # Gemini Vision accepts PIL Images directly — no intermediate text needed.
-
     if file_ext in SUPPORTED_PDF_FORMAT:
         print("  [1/2] PDF → Images")
         try:
@@ -80,12 +52,7 @@ def process_file(file_path: str) -> dict:
             "answers": {}
         }
 
-    # ---- Step 2: Gemini Vision → Structured JSON ----
-    # All pages are sent in ONE API call.
-    # Gemini sees every page together, so it can correctly handle:
-    #   - Answers that continue across a page break
-    #   - Sub-parts split across pages
-    #   - The full context of the paper
+  
 
     print(f"  [2/2] Gemini Vision — reading {len(images)} page(s)...")
     structured = structure_images(images)
@@ -108,22 +75,6 @@ def process_file(file_path: str) -> dict:
 
 
 def process_folder(input_folder: str, output_folder: str) -> list:
-    """
-    Batch processes all supported files in a folder.
-
-    For each file:
-      - Runs the full pipeline
-      - Saves a <filename>_result.json in output_folder
-
-    Also saves a _summary.json with aggregate stats.
-
-    Args:
-        input_folder (str):  Folder containing student exam files
-        output_folder (str): Folder where JSON results will be saved
-
-    Returns:
-        list[dict]: Summary of all processed files
-    """
     input_path  = Path(input_folder)
     output_path = Path(output_folder)
 

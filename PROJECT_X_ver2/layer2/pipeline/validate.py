@@ -1,6 +1,3 @@
-"""
-COMPACT PIPELINE VALIDATOR - writes results to results.json
-"""
 import os, sys, json, traceback
 sys.path.insert(0, os.path.dirname(__file__))
 

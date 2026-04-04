@@ -1,22 +1,3 @@
-"""
-pdf_converter.py
-----------------
-PURPOSE: Converts PDF files into lists of PIL Images, one per page.
-
-WHY THIS IS A SEPARATE MODULE:
-  EasyOCR/Gemini works natively with image format.
-  This module bridges the gap.
-
-HOW pdf2image WORKS:
-  It uses a tool called Poppler under the hood.
-  Poppler is a C++ library that renders PDF pages as pixel images.
-  On Windows, you need to install Poppler separately (see README).
-
-DPI EXPLAINED:
-  DPI = Dots Per Inch = how many pixels per inch of the original page.
-  Higher DPI = more pixels = better details (but slower, larger files).
-  200 DPI is a good sweet spot for handwritten exam papers.
-"""
 
 import os
 from pathlib import Path

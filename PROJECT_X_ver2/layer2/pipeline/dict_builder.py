@@ -3,24 +3,6 @@ import json
 import re
 
 def build_question_dictionaries(directory_path: str) -> dict:
-    """
-    Parses all JSON answer sheets in a directory and builds a nested dictionary.
-    
-    Output Schema:
-    {
-        1: {
-            "1_result.json": "Answer text for question 1...",
-            "3_result.json": "Answer text for question 1..."
-        },
-        2: { 
-            "1_result.json": "Answer text for question 2...",
-            ... 
-        }
-    }
-    
-    The inner dictionary for each question perfectly matches the `answers: dict` 
-    input parameter expected by the cluster_answers() function.
-    """
     # Initialize dictionary mapping question_id -> { doc_name -> answer_string }
     questions_dict = {i: {} for i in range(1, 11)}
     
