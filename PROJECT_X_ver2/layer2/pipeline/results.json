@@ -1,0 +1,81 @@
+{
+  "layer1": {
+    "keys_present": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "expected_keys": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "keys_ok": true,
+    "response_counts": {
+      "Q1": 0,
+      "Q2": 0,
+      "Q3": 0,
+      "Q4": 0,
+      "Q5": 0,
+      "Q6": 0,
+      "Q7": 0,
+      "Q8": 0,
+      "Q9": 0,
+      "Q10": 0
+    },
+    "all_have_10": false,
+    "sample_doc_keys": [],
+    "keys_are_filenames": true,
+    "q1_doc1_preview": "EMPTY",
+    "q1_doc1_empty": true,
+    "q1_starts_with_digit": false
+  },
+  "layer2": {
+    "ids_match": true,
+    "missing_ids": [],
+    "extra_ids": [],
+    "total_students": 0,
+    "total_clusters": 0,
+    "unclustered": [],
+    "edge_case_count": 0,
+    "cluster_schema_ok": true,
+    "clusters": [],
+    "metadata_ok": true,
+    "metadata": {
+      "model_used": "paraphrase-multilingual-MiniLM-L12-v2",
+      "algorithm": "DBSCAN",
+      "total_students": 0,
+      "total_clusters": 0,
+      "processing_time_seconds": 0.0,
+      "embedding_time_seconds": 0.0,
+      "clustering_time_seconds": 0.0,
+      "edge_case_count": 0
+    },
+    "edge_detector_tests": {
+      "edge_text_flagged": true,
+      "clean_not_flagged": true,
+      "noise_not_flagged": true
+    },
+    "edge_detector_all_pass": true
+  },
+  "layer3": {
+    "EXCEPTION": "Traceback (most recent call last):\n  File \"D:\\dump\\PROJECT_X\\layer2\\pipeline\\validate.py\", line 97, in <module>\n    from main_pipeline import run_evaluation\n  File \"D:\\dump\\PROJECT_X\\layer2\\pipeline\\main_pipeline.py\", line 65, in <module>\n    print(f\"[DEBUG] PATH: {target_docs_folder}\")\n                           ^^^^^^^^^^^^^^^^^^\nNameError: name 'target_docs_folder' is not defined\n"
+  },
+  "issues": [
+    "LAYER3: name 'target_docs_folder' is not defined"
+  ]
+}

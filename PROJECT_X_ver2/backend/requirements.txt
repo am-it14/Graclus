@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+sentence-transformers
+scikit-learn
+numpy
+python-dotenv
+pdf2image
+pillow
+google-generativeai
